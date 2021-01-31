@@ -15,6 +15,11 @@ public class DefaultEmbedMessageBuilder extends EmbedMessage {
     embedBuilder.setTitle(title);
   }
 
+  public DefaultEmbedMessageBuilder setTitle(final String title) {
+    embedBuilder.setTitle(title);
+    return this;
+  }
+
   public DefaultEmbedMessageBuilder setColor(final Color color) {
     embedBuilder.setColor(color);
     return this;
