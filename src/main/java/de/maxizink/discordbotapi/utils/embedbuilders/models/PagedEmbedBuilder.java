@@ -95,7 +95,6 @@ public class PagedEmbedBuilder extends ListenerAdapter {
     if (event.getReactionEmote().getName().equals("\u25B6")) {
       sendNext();
       event.getReaction().removeReaction(event.getUser()).queue();
-      return;
     }
   }
 }
