@@ -1,6 +1,6 @@
 # Description
 
-a DiscordBotAPI based on the JDA
+A DiscordBotAPI based on the JDA!
 
 # Example
 
