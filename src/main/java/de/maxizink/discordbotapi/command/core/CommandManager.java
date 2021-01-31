@@ -1,6 +1,5 @@
-package de.maxizink.discordbotapi.command;
+package de.maxizink.discordbotapi.command.core;
 
-import de.maxizink.discordbotapi.command.models.Command;
 import de.maxizink.discordbotapi.utils.embedbuilders.models.DefaultEmbedMessageBuilder;
 import lombok.Setter;
 import net.dv8tion.jda.api.JDA;

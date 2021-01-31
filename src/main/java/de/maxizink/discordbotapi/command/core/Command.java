@@ -1,4 +1,4 @@
-package de.maxizink.discordbotapi.command.models;
+package de.maxizink.discordbotapi.command.core;
 
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;

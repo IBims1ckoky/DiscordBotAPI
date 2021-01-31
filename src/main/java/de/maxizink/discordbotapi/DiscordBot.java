@@ -7,6 +7,7 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import net.dv8tion.jda.api.utils.cache.CacheFlag;
 
 import javax.security.auth.login.LoginException;
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class DiscordBot {
 
   public DiscordBot(final String token) {
     try {
-      this.jda = JDABuilder.create(token, getGatewayIntents())
+      this.jda = JDABuilder.create(token, getGatewayIntents()).enableCache(getCacheFlags())
           .setActivity(Activity.playing("here"))
           .setStatus(OnlineStatus.ONLINE).setAutoReconnect(true).build().awaitReady();
     } catch (LoginException | InterruptedException e) {
@@ -41,6 +42,13 @@ public class DiscordBot {
     intents.add(GatewayIntent.GUILD_EMOJIS);
     intents.add(GatewayIntent.GUILD_MESSAGE_REACTIONS);
     return intents;
+  }
+
+  private Collection<CacheFlag> getCacheFlags() {
+    List<CacheFlag> cacheFlags = new ArrayList<>();
+    cacheFlags.add(CacheFlag.EMOTE);
+    cacheFlags.add(CacheFlag.VOICE_STATE);
+    return cacheFlags;
   }
 
   public void setActivity(final Activity activity) {
