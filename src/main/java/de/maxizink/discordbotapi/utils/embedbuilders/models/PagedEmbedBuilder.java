@@ -12,21 +12,22 @@ import org.jetbrains.annotations.NotNull;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * An Embed Message with selectable Pages per Reactions
+ */
 public class PagedEmbedBuilder extends ListenerAdapter {
 
   public PagedEmbedBuilder(final List<String> allowedUsers, final TextChannel textChannel,
                            final DiscordBot discordBot) {
     this.textChannel = textChannel;
-    discordBot.getJda().addEventListener(this);
-    this.guild = discordBot.getJda().getGuildById(Example.GUILD_ID);
+    discordBot.getJDA().addEventListener(this);
     this.allowedUsers = allowedUsers;
   }
 
   private final List<String> allowedUsers;
   private final TextChannel textChannel;
-  private LinkedList<DefaultEmbedMessageBuilder> embedPages = new LinkedList<>();
+  private LinkedList<DefaultEmbedBuilder> embedPages = new LinkedList<>();
   private int current;
-  private Guild guild;
 
   private Message currentMessage;
 
@@ -40,14 +41,14 @@ public class PagedEmbedBuilder extends ListenerAdapter {
     });
   }
 
-  public void addPage(final DefaultEmbedMessageBuilder defaultEmbedMessageBuilder) {
-    embedPages.add(defaultEmbedMessageBuilder);
+  public void addPage(final DefaultEmbedBuilder defaultEmbedBuilder) {
+    embedPages.add(defaultEmbedBuilder);
   }
 
   public void addPage(final String title, final String underTitle, final String text) {
-    DefaultEmbedMessageBuilder defaultEmbedMessageBuilder = new DefaultEmbedMessageBuilder(title);
-    defaultEmbedMessageBuilder.addField(underTitle, text);
-    embedPages.add(defaultEmbedMessageBuilder);
+    DefaultEmbedBuilder defaultEmbedBuilder = new DefaultEmbedBuilder(title);
+    defaultEmbedBuilder.addField(underTitle, text);
+    embedPages.add(defaultEmbedBuilder);
   }
 
   public void sendBefore() {

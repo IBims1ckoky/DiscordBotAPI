@@ -1,8 +1,8 @@
 package de.maxizink.discordbotapi.command.core;
 
-import de.maxizink.discordbotapi.utils.embedbuilders.models.DefaultEmbedMessageBuilder;
+import de.maxizink.discordbotapi.DiscordBot;
+import de.maxizink.discordbotapi.utils.embedbuilders.models.DefaultEmbedBuilder;
 import lombok.Setter;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
@@ -23,8 +23,8 @@ public class CommandManager extends ListenerAdapter {
   @Setter
   private String noPermissionTitle = "Keine Rechte!";
 
-  public CommandManager(final JDA jda) {
-    jda.addEventListener(this);
+  public CommandManager(final DiscordBot discordBot) {
+    discordBot.getJDA().addEventListener(this);
   }
 
   public void registerCommand(final Command command) {
@@ -87,10 +87,10 @@ public class CommandManager extends ListenerAdapter {
   }
 
   private void sendNoPermission(final Member member, final TextChannel textChannel) {
-    final DefaultEmbedMessageBuilder defaultEmbedMessageBuilder = new DefaultEmbedMessageBuilder(noPermissionTitle);
-    defaultEmbedMessageBuilder.setColor(Color.RED);
-    defaultEmbedMessageBuilder.setThumbnail(member.getUser().getAvatarUrl());
-    textChannel.sendMessage(defaultEmbedMessageBuilder.build())
+    final DefaultEmbedBuilder defaultEmbedBuilder = new DefaultEmbedBuilder(noPermissionTitle);
+    defaultEmbedBuilder.setColor(Color.RED);
+    defaultEmbedBuilder.setThumbnail(member.getUser().getAvatarUrl());
+    textChannel.sendMessage(defaultEmbedBuilder.build())
         .complete().delete().queueAfter(10, TimeUnit.SECONDS);
   }
 
