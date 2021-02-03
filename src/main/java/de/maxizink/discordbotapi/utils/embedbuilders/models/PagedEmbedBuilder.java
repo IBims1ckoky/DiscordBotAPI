@@ -1,8 +1,6 @@
 package de.maxizink.discordbotapi.utils.embedbuilders.models;
 
 import de.maxizink.discordbotapi.DiscordBot;
-import de.maxizink.discordbotapi.Example;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
