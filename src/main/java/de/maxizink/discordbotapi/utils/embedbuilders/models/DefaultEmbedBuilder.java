@@ -6,32 +6,36 @@ import net.dv8tion.jda.api.entities.MessageEmbed;
 
 import java.awt.Color;
 
-public class DefaultEmbedMessageBuilder extends EmbedMessage {
+
+/**
+ * A Default EmbedBuilder with a Title and Fields
+ */
+public class DefaultEmbedBuilder extends EmbedMessage {
 
   private EmbedBuilder embedBuilder;
 
-  public DefaultEmbedMessageBuilder(String title) {
+  public DefaultEmbedBuilder(String title) {
     embedBuilder = new EmbedBuilder();
     embedBuilder.setTitle(title);
   }
 
-  public DefaultEmbedMessageBuilder setTitle(final String title) {
+  public DefaultEmbedBuilder setTitle(final String title) {
     embedBuilder.setTitle(title);
     return this;
   }
 
-  public DefaultEmbedMessageBuilder setColor(final Color color) {
+  public DefaultEmbedBuilder setColor(final Color color) {
     embedBuilder.setColor(color);
     return this;
   }
 
-  public DefaultEmbedMessageBuilder setThumbnail(final String url) {
+  public DefaultEmbedBuilder setThumbnail(final String url) {
     embedBuilder.setThumbnail(url);
     return this;
   }
 
   @Override
-  public DefaultEmbedMessageBuilder addField(final String underTitle, final String text) {
+  public DefaultEmbedBuilder addField(final String underTitle, final String text) {
     embedBuilder.addField(underTitle, text, false);
     return this;
   }

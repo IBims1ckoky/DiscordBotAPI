@@ -13,8 +13,7 @@ public class ExampleEmbedPageCommand extends Command {
 
   private final DiscordBot discordBot;
 
-  public ExampleEmbedPageCommand(List<String> permissions, final DiscordBot discordBot) {
-    super(permissions);
+  public ExampleEmbedPageCommand(final DiscordBot discordBot) {
     this.discordBot = discordBot;
   }
 
@@ -26,6 +25,11 @@ public class ExampleEmbedPageCommand extends Command {
   @Override
   public String getDescription() {
     return "Sends you and example message";
+  }
+
+  @Override
+  public List<String> getPermissionIds() {
+    return new ArrayList<>();
   }
 
   @Override
