@@ -26,4 +26,4 @@ dependencies {
 }
 ```
 ### For an Example look here
-https://github.com/IBims1ckoky/DiscordBotAPIExample
+https://github.com/IBims1ckoky/DiscordBotAPIExample/tree/master/src/main/java/de/maxizink/discordbotapiexample
