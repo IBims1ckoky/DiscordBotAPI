@@ -1,4 +1,4 @@
-package de.maxizink.discordbotapi.listener.core;
+package de.maxizink.discordbotapi.listener;
 
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 

@@ -1,4 +1,4 @@
-package de.maxizink.discordbotapi.utils.embedbuilders;
+package de.maxizink.discordbotapi.menu.utils;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

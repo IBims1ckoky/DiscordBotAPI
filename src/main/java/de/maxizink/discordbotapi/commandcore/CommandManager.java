@@ -1,7 +1,7 @@
-package de.maxizink.discordbotapi.command.core;
+package de.maxizink.discordbotapi.commandcore;
 
 import de.maxizink.discordbotapi.DiscordBot;
-import de.maxizink.discordbotapi.utils.embedbuilders.models.DefaultEmbedBuilder;
+import de.maxizink.discordbotapi.utils.BotEmbedBuilder;
 import lombok.Setter;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -87,7 +87,7 @@ public class CommandManager extends ListenerAdapter {
   }
 
   private void sendNoPermission(final Member member, final TextChannel textChannel) {
-    final DefaultEmbedBuilder defaultEmbedBuilder = new DefaultEmbedBuilder(noPermissionTitle);
+    final BotEmbedBuilder defaultEmbedBuilder = new BotEmbedBuilder(noPermissionTitle);
     defaultEmbedBuilder.setColor(Color.RED);
     defaultEmbedBuilder.setThumbnail(member.getUser().getAvatarUrl());
     textChannel.sendMessage(defaultEmbedBuilder.build())

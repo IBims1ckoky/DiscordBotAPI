@@ -1,6 +1,7 @@
-package de.maxizink.discordbotapi.utils.embedbuilders.models;
+package de.maxizink.discordbotapi.menu;
 
 import de.maxizink.discordbotapi.DiscordBot;
+import de.maxizink.discordbotapi.utils.BotEmbedBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
 import net.dv8tion.jda.api.events.message.guild.react.GuildMessageReactionAddEvent;
@@ -13,10 +14,10 @@ import java.util.List;
 /**
  * An Embed Message with selectable Pages per Reactions
  */
-public class PagedEmbedBuilder extends ListenerAdapter {
+public class PagedMenu extends ListenerAdapter {
 
-  public PagedEmbedBuilder(final List<String> allowedUsers, final TextChannel textChannel,
-                           final DiscordBot discordBot) {
+  public PagedMenu(final List<String> allowedUsers, final TextChannel textChannel,
+                   final DiscordBot discordBot) {
     this.textChannel = textChannel;
     discordBot.getJDA().addEventListener(this);
     this.allowedUsers = allowedUsers;
@@ -24,7 +25,7 @@ public class PagedEmbedBuilder extends ListenerAdapter {
 
   private final List<String> allowedUsers;
   private final TextChannel textChannel;
-  private LinkedList<DefaultEmbedBuilder> embedPages = new LinkedList<>();
+  private LinkedList<BotEmbedBuilder> embedPages = new LinkedList<>();
   private int current;
 
   private Message currentMessage;
@@ -39,12 +40,12 @@ public class PagedEmbedBuilder extends ListenerAdapter {
     });
   }
 
-  public void addPage(final DefaultEmbedBuilder defaultEmbedBuilder) {
+  public void addPage(final BotEmbedBuilder defaultEmbedBuilder) {
     embedPages.add(defaultEmbedBuilder);
   }
 
   public void addPage(final String title, final String underTitle, final String text) {
-    DefaultEmbedBuilder defaultEmbedBuilder = new DefaultEmbedBuilder(title);
+    BotEmbedBuilder defaultEmbedBuilder = new BotEmbedBuilder(title);
     defaultEmbedBuilder.addField(underTitle, text);
     embedPages.add(defaultEmbedBuilder);
   }

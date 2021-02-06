@@ -1,11 +1,11 @@
 package de.maxizink.discordbotapi;
 
-import de.maxizink.discordbotapi.command.core.Command;
-import de.maxizink.discordbotapi.command.core.CommandManager;
-import de.maxizink.discordbotapi.listener.core.EventListener;
-import de.maxizink.discordbotapi.listener.core.EventManager;
-import de.maxizink.discordbotapi.schedulars.core.SchedulerManager;
-import de.maxizink.discordbotapi.schedulars.core.TimeScheduler;
+import de.maxizink.discordbotapi.commandcore.Command;
+import de.maxizink.discordbotapi.commandcore.CommandManager;
+import de.maxizink.discordbotapi.listener.EventListener;
+import de.maxizink.discordbotapi.listener.EventManager;
+import de.maxizink.discordbotapi.schedulars.SchedulerManager;
+import de.maxizink.discordbotapi.schedulars.TimeScheduler;
 import lombok.Getter;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;

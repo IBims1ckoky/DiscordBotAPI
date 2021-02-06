@@ -1,4 +1,4 @@
-package de.maxizink.discordbotapi.command.core;
+package de.maxizink.discordbotapi.commandcore;
 
 import lombok.Getter;
 import net.dv8tion.jda.api.entities.Member;

@@ -1,4 +1,4 @@
-package de.maxizink.discordbotapi.schedulars.core;
+package de.maxizink.discordbotapi.schedulars;
 
 public abstract class TimeScheduler {
 

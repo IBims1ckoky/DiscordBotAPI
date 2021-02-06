@@ -1,6 +1,6 @@
-package de.maxizink.discordbotapi.schedulars.core.models;
+package de.maxizink.discordbotapi.schedulars.models;
 
-import de.maxizink.discordbotapi.schedulars.core.TimeScheduler;
+import de.maxizink.discordbotapi.schedulars.TimeScheduler;
 import lombok.RequiredArgsConstructor;
 
 import java.util.concurrent.Executors;

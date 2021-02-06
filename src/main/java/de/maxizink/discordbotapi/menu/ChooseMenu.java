@@ -1,7 +1,8 @@
-package de.maxizink.discordbotapi.utils.embedbuilders.models;
+package de.maxizink.discordbotapi.menu;
 
 import de.maxizink.discordbotapi.DiscordBot;
-import de.maxizink.discordbotapi.utils.embedbuilders.NumberEmojis;
+import de.maxizink.discordbotapi.menu.utils.NumberEmojis;
+import de.maxizink.discordbotapi.utils.BotEmbedBuilder;
 import lombok.Getter;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.TextChannel;
@@ -20,7 +21,7 @@ import java.util.List;
  *
  * @param <T> ist the Type which you can Choose (BackEnd)
  */
-public class ChooseEmbedBuilder<T> extends ListenerAdapter {
+public class ChooseMenu<T> extends ListenerAdapter {
 
   private final List<T> chooseOptions;
   private final HashMap<T, String> displayMessages = new LinkedHashMap<>();
@@ -40,7 +41,7 @@ public class ChooseEmbedBuilder<T> extends ListenerAdapter {
   private Runnable afterChoosingRunnable;
   private Message message;
 
-  public ChooseEmbedBuilder(final DiscordBot discordBot, final String... allowedUserIds) {
+  public ChooseMenu(final DiscordBot discordBot, final String... allowedUserIds) {
     this.chooseOptions = new LinkedList<>();
     this.allowedUsers = allowedUserIds;
     this.discordBot = discordBot;
@@ -53,7 +54,7 @@ public class ChooseEmbedBuilder<T> extends ListenerAdapter {
   }
 
   public void send(final TextChannel textChannel, final String title, final String underTitle) {
-    DefaultEmbedBuilder defaultEmbedBuilder = new DefaultEmbedBuilder(title);
+    BotEmbedBuilder defaultEmbedBuilder = new BotEmbedBuilder(title);
     StringBuilder stringBuilder = new StringBuilder();
     int i = 0;
     for (final T t : chooseOptions) {

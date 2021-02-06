@@ -1,4 +1,4 @@
-package de.maxizink.discordbotapi.utils.embedbuilders;
+package de.maxizink.discordbotapi.utils;
 
 import net.dv8tion.jda.api.entities.MessageEmbed;
 
