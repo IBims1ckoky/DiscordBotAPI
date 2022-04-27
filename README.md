@@ -1,3 +1,5 @@
+# THIS API WORKS BUT IS DEPRECATED
+
 # Description
 
 A DiscordBotAPI based on the JDA!
